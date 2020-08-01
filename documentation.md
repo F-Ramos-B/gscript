@@ -1,6 +1,6 @@
 # Gscript
 
-Version: 0.1
+Version: 0.1.1
 
 Small JavaScript framework for ChoiceScript giving some new functionality which could be useful for Choicescript game programmers.
 
