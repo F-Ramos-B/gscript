@@ -1,6 +1,6 @@
 # Gscript
 
-Version: 0.1
+Version: 0.1.1
 
 Small JavaScript framework for ChoiceScript giving some new functionality which could be useful for Choicescript game programmers.
 
@@ -42,6 +42,13 @@ As a TypeScript programmer I decided to make this little side project as a fun p
 #### IMPORTANT
 
 Don't use camelcase (variableName) for variables you create here, CS seems to transform them all to lower case so you might face issues if you make any variables like that. All supplied variables returned by the framework are lowercased. Since I have to parse stuff here and then I'm not yet sure if underscores will have any sort of conflict yet, give it a try and see if it works.
+
+To pass variables from ChoiceScript to JavaScript functions here you can also use the following notations:
+
+`vars.created.VARNAME` = For a created variable
+`vars.temps.VARNAME` = For a temp variable
+
+For some functions like the min and max evaluators this is how you need to pass values of variables of your ChoiceScript variables to the JS functions.
 
 ## Array module
 
