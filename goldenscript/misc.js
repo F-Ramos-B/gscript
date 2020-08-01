@@ -10,8 +10,8 @@ const getLastCreatedIndex = () => {
   return _.values(gscript.created).reduce(maxFunction);
 }
 
-const printer = value => {
-  console.log(value);
+const printer = (...values) => {
+  values.forEach(value => console.log(value));
 }
 
 const printerTable = arr => {

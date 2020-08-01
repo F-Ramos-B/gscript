@@ -15,7 +15,7 @@ const wrapCreatedArray = arrayName => {
 }
 
 const wrapTempArray = arrayName => {
-  return wrapArray(arrayName, 'temp');
+  return wrapArray(arrayName, 'temps');
 }
 
 const unwrapArray = (arrayName, arr) => {

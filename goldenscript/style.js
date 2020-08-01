@@ -19,6 +19,9 @@ const createNewStyle = (styleName, style) => {
 }
 
 const updateCreatedStyle = (styleName, style) => {
+  if (!gscript.styles[style]) {
+    thrower(`Style ${styleName} not found.`);
+  }
   gscript.styles[styleName] = { ...gscript.styles[styleName], ...style};
 }
 
@@ -28,8 +31,8 @@ const applySavedStyle = styleName => {
   }
 }
 
-const applyNewStyle = style => {
-  for (const key in style) {
+const applyNewStyle = (...styles) => {
+  for (const key in styles) {
     gscript.body.style[key] = style[key];
   }
 }

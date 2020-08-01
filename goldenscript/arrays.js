@@ -36,13 +36,13 @@ const sortArray = (...args) => {
 const createArrayDynamic = (arrayName, ...args) => {
   const keyName = arrayName.toLowerCase() + constants.UNDERSCORE;
   args.forEach((el, index) => injectCreatedVar(keyName + (index + 1), el));
-  injectCreatedVar(keyName + '_size', args.length);
+  return supplyTempVar(keyName + 'size', args.length);
 }
 
 const tempArrayDynamic = (arrayName, ...args) => {
   const keyName = arrayName.toLowerCase() + constants.UNDERSCORE;
   args.forEach((el, index) => injectTempVar(keyName + (index + 1), el));
-  injectTempVar(keyName + '_size', args.length);
+  return supplyTempVar(keyName + 'size', args.length);
 }
 
 const retrieveCreatedArrayLength = arrayName => {
