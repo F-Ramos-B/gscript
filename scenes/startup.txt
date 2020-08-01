@@ -1,0 +1,164 @@
+*comment Copyright 2010 by Dan Fabulich.
+*comment 
+*comment Dan Fabulich licenses this file to you under the
+*comment ChoiceScript License, Version 1.0 (the "License"); you may
+*comment not use this file except in compliance with the License. 
+*comment You may obtain a copy of the License at
+*comment 
+*comment  http://www.choiceofgames.com/LICENSE-1.0.txt
+*comment 
+*comment See the License for the specific language governing
+*comment permissions and limitations under the License.
+*comment 
+*comment Unless required by applicable law or agreed to in writing,
+*comment software distributed under the License is distributed on an
+*comment "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
+*comment either express or implied.
+
+*title My First ChoiceScript Game
+*author Anonymous
+*scene_list
+  startup
+
+*create implicit_control_flow true
+
+*create arr_1 20
+*create arr_2 10
+*create arr_3 30
+*create arr_4 80
+*create arr_5 70
+*create leadership 50
+*create agility 40
+*create speed 60
+*create strength 30
+*create return "teste"
+*create nome "andrews"
+*create newVarCap "andrews"
+*temp weight 55
+*temp teste 10
+*temp newfont ""
+*temp rawstyle ""
+
+
+*script startup()
+
+Test
+
+*script injectCreatedVar('bed_color', 'green')
+
+You enter the room and look at the bed, its color is ${bed_color}.
+
+*script supplyMinOfWithVar({ leadership: vars.created.leadership}, { strength: vars.created.strength }, { speed: vars.created.speed }, { agility: vars.created.agility }, { weight: vars.temps.weight });
+
+Lowest value is: ${return_min_of}
+
+Name of the variable with lowest value: ${return_min_of_varname}
+
+*script printer(vars)
+*script printer(gscript.styles)
+
+*page_break
+
+*script addNewType('vehicles')
+
+*comment *script addTempVar('sedan', { engine: 'whatever model', year: 2006, color: 'red' })
+
+*script insertInstance('vehicles', { name: 'sedan', engine: 'whatever model', year: 2006, color: 'red', tires: [] })
+*script insertInstance('vehicles', { name: 'truck', engine: 'whatefeasver model', year: 2010, color: 'yellow', tires: [] })
+*script insertInstance('vehicles', { name: 'ford Cruiser', engine: 'whatevweafdser model', year: 2007, color: 'light blue', tires: ['frontal', 'traseira'] })
+*script insertInstance('vehicles', { name: 'porsche', engine: 'whaeawfeadstever model', year: 2002, color: 'black', tires: [] })
+*script supplyInstance('vehicles', 3)
+*script printer(getAllTemps())
+*script eval('console.log("teste")');
+
+Car name: $!{return_vehicles_instance_name}
+
+ID: ${return_vehicles_instance_id}
+*line_break
+Year: ${return_vehicles_instance_year}
+*line_break
+Engine type: $!!{return_vehicles_instance_engine}
+*line_break
+Color: $!{return_vehicles_instance_color}
+
+*page_break
+
+Test text replace
+
+$GS{return_vehicles_instance_name}
+
+$!GS{return_vehicles_instance_name}
+
+$!!GS{return_vehicles_instance_name}
+
+$GS!{return_vehicles_instance_name}
+
+$GS!!{return_vehicles_instance_name}
+
+$!GS!{return_vehicles_instance_name}
+
+$GS{return_vehicles_instance_color}
+
+$!GS{return_vehicles_instance_color}
+
+$!!GS{return_vehicles_instance_color}
+
+$GS!{return_vehicles_instance_color}
+
+$GS!!{return_vehicles_instance_color}
+
+$!GS!{return_vehicles_instance_color}
+
+*script pageTextReplacer({return_vehicles_instance_name: vars.temps.return_vehicles_instance_name}, {return_vehicles_instance_color: vars.temps.return_vehicles_instance_color})
+
+*page_break
+
+Test maxof Minof
+
+*comment *script supplyMinOfWithVar({arr_1: vars.created.arr_1}, {arr_2: vars.created.arr_2}, {arr_3: vars.created.arr_3}, {arr_4: vars.created.arr_4}, {arr_5: vars.created.arr_5})
+
+*script supplyMaxOfWithVar({arr_1: vars.created.arr_1}, {arr_2: vars.created.arr_2}, {arr_3: vars.created.arr_3}, {arr_4: vars.created.arr_4}, {arr_5: vars.created.arr_5})
+
+*comment *script supplyMaxOf(vars.created.arr_1, vars.created.arr_2, vars.created.arr_3, vars.created.arr_4, vars.created.arr_5)
+
+*script printer(getAllTemps())
+
+*page_break
+
+*fake_choice
+  #Terminal.
+    *script applySavedStyle('terminal');
+  #Story.
+    *script applySavedStyle('story');
+  #None.
+    *script applySavedStyle('default');
+
+*script createArrayDynamic('generated_array', 50, 30, 20, 40, 60, 70, 10, 20, 50, 20, 40, 25, 90, 25, 25, 30, 40)
+
+Generated array index 10: ${generated_array[10]}
+
+Size: ${return_generated_array_size}
+
+*script tempArrayDynamic('generated_array_temp', 'lasanha', 'pizza', 'macarrão', 'cebola', 'tomate')
+
+*script consumer(() => { console.log('testando sintaxe 1'); console.log('testando sintaxe 2'); console.log('testando sintaxe 3'); console.log('testando sintaxe 4'); });
+
+*script printer(wrapCreatedArray('generated_array'))
+*script printer(unwrapArray('generated_array', wrapCreatedArray('generated_array')))
+*script printerTable(wrapCreatedArray('generated_array'))
+*script printerTable(wrapTempArray('generated_array_temp'))
+
+*page_break
+
+*script printer(wrapCreatedArray('generated_array'))
+
+*script sortArray(...wrapCreatedArray('generated_array'))
+
+*script printer(vars.temps)
+
+Sorted array index 10: ${return_sorted_array[10]}
+Size: ${return_sorted_array_size}
+
+*page_break
+
+*ending
