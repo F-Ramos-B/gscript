@@ -43,6 +43,13 @@ As a TypeScript programmer I decided to make this little side project as a fun p
 
 Don't use camelcase (variableName) for variables you create here, CS seems to transform them all to lower case so you might face issues if you make any variables like that. All supplied variables returned by the framework are lowercased. Since I have to parse stuff here and then I'm not yet sure if underscores will have any sort of conflict yet, give it a try and see if it works.
 
+To pass variables from ChoiceScript to JavaScript functions here you can also use the following notations:
+
+`vars.created.VARNAME` = For a created variable
+`vars.temps.VARNAME` = For a temp variable
+
+For some functions like the min and max evaluators this is how you need to pass values of variables of your ChoiceScript variables to the JS functions.
+
 ## Array module
 
 In CS arrays aren't actually arrays, rather they are object keys that end with an underline and a number (like 'trucks_1', 'trucks_2' etc) which means they don't support normal array usage as in JS. To get around this GScript will wrap CS-pseudo arrays into actual JS arrays to do operations and then unwrap them to CS-pseudo arrays so they can be used on CS.

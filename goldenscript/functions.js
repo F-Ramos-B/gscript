@@ -15,7 +15,7 @@ const consumer = (fn, ...params) => fn ? fn(params) : thrower('No function provi
 const repeatableConsumer = (fn, times, ...params) => {
   if (fn) {
     for (let i = 0; i < times; i++) {
-      fn(params, i);
+      fn(params[i], i);
     }
   } else {
     thrower('No function provided to iterable consumer!');
