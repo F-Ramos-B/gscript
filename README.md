@@ -428,6 +428,8 @@ I've added new text selectors to transform variables; some are the same that exi
 
 	*script pageTextReplacer({return_vehicles_instance_name: vars.temps.return_vehicles_instance_name}, {return_vehicles_instance_color: vars.temps.return_vehicles_instance_color})
 
+To use the text replacer, use the pageTextReplacer function and pass objects as parameters. Each object needs to have the name of the variable as a key and then the value of the variable as per the example above.
+
 The whole visible text on the page will be transformed depending on the identifiers used.
 
 Result:
