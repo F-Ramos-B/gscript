@@ -17,6 +17,14 @@ Below is the documentation; one might need some JavaScript knowledge to use some
 
 Simply extract the contents of the file to your `dfabulich-choicescript-8456ed7\web\mygame` folder and overwrite index.html when asked.
 
+At the start of your game, after you declare your variables, add this line so the framework can start:
+
+```
+*script startup()
+```
+
+I've added a sample startup.txt file as an example that uses some of the functions this framework provides.
+
 # Disclaimer
 
 This project is has no involvement or support from Choice of Games LLC and is entirely personal. I may at any time decide to stop supporting this project and will not be held accountable if it screws up something on your game or if a ChoiceScript update breaks something.
